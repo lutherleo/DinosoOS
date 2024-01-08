@@ -1,0 +1,25 @@
+; Initialize counter
+MOV R1, 1  ; Load initial value 1 into R1
+
+PrintLoop:
+    ; Convert digit to ASCII and output
+    ADD R0, R1, 48  ; Add 48 to get ASCII code
+    MOV R16, R0     ; Move to output register
+    OUT P1, R16     ; Print character
+
+    ; Print newline (if supported)
+    ; (Assuming ASCII codes 10 for line feed and 13 for carriage return)
+    MOV R0, 10      ; Load ASCII code for line feed
+    MOV R16, R0
+    OUT P1, R16
+    MOV R0, 13      ; Load ASCII code for carriage return
+    MOV R16, R0
+    OUT P1, R16
+
+    ; Increment counter and check for loop end
+    INC R1          ; Increment counter
+    CMP R1, 21      ; Compare with 21
+    JNE PrintLoop   ; Jump if not equal
+
+HALT             ; Stop execution
+

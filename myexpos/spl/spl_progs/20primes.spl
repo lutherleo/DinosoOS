@@ -1,0 +1,27 @@
+alias i R0;
+alias j R1;
+alias kounter R2;
+alias flag R3;
+flag = 1;
+i = 3;
+j = 0;
+kounter = 2;
+print 2*2;
+while(j <= 20) do
+	while(kounter < i) do
+		if( i%kounter == 0) then
+			flag = 0;
+			break;
+		endif;
+		kounter = kounter + 1;
+	endwhile;
+	
+	kounter = 2;
+	if(flag == 1) then
+		print i*i;
+		j = j +1;
+	endif;
+	i = i +1;
+	flag = 1;
+
+endwhile;	
